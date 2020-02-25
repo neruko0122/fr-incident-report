@@ -7,6 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "format:check": "prettier --no-semi true --single-quote true --check \"src/app/**/*{.ts,.js,.json,.css,.scss,.html}\"",
+    "format:write": "npm run format:check -- --write",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -39,6 +41,8 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "prettier": "^1.19.1",
+    "prettier-stylelint": "^0.4.2",
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
