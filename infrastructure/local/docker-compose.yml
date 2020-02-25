@@ -3,7 +3,7 @@ services:
   db:
     container_name: fr-incident-report-db
     build: ./db
-    image: fr-incident-report-db
+    image: mysql:8.0
     command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --skip-character-set-client-handshake
     restart: always
     ports:
@@ -15,5 +15,5 @@ services:
       MYSQL_PASSWORD: 'Password!!!'
     networks:
       - my_network
- networks:
-  my_network:
+networks:
+ my_network:
