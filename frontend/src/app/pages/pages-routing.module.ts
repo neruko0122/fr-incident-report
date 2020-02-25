@@ -7,7 +7,13 @@ const routes: Routes = [
   {
     path: '',
     component: PagesComponent,
-    children: []
+    children: [
+      {
+        path: 'account',
+        loadChildren: () =>
+          import('./account/account.module').then(m => m.AccountModule)
+      }
+    ]
   }
 ]
 
