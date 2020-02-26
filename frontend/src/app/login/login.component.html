@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="login-page" [@routerTransition]>
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <!-- <img src="assets/images/login/logo.png" width="150px" class="user-avatar" /> -->
+      <h1>FrIncidentReport</h1>
+      <form [formGroup]="form" autocomplete="off">
+        <div class="form-content">
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control input-underline input-lg"
+              name="userId"
+              formControlName="userId"
+              placeholder="UserId"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              class="form-control input-underline input-lg"
+              name="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+          </div>
+          <p *ngIf="errorMessage" class="text-danger">
+            <i class="fa fa-times-circle-o"></i>{{ errorMessage }}
+          </p>
+        </div>
+        <button
+          type="submit"
+          class="btn rounded-btn"
+          (keyup.enter)="login()"
+          (click)="login()"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

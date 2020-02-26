@@ -1,0 +1,108 @@
+$topnav-background-color: rgb(255, 245, 160);
+
+:host {
+  display: block;
+}
+
+.login-page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 3em;
+  overflow: auto;
+  color: #808080;
+  text-align: center;
+  background: $topnav-background-color;
+
+  .col-lg-4 {
+    padding: 0;
+  }
+
+  .input-lg {
+    height: 46px;
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 0;
+  }
+
+  .input-underline {
+    color: rgba(80, 80, 80, 0.884);
+    background: 0 0;
+    border: none;
+    border-bottom: 2px solid rgba(80, 80, 80, 0.5);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .input-underline:focus {
+    border-bottom: 2px solid #808080;
+    box-shadow: none;
+  }
+
+  .rounded-btn {
+    width: 100%;
+    padding: 0 25px;
+    color: rgba(80, 80, 80, 0.8);
+    font-size: 18px;
+    line-height: 40px;
+    background: $topnav-background-color;
+    border: 2px solid rgba(80, 80, 80, 0.8);
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+  }
+
+  .rounded-btn:hover,
+  .rounded-btn:focus,
+  .rounded-btn:active,
+  .rounded-btn:visited {
+    color: rgba(80, 80, 80, 1);
+    border: 2px solid rgba(80, 80, 80, 1);
+    outline: none;
+  }
+
+  h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 300;
+    font-size: 36px;
+
+    small {
+      color: rgba(80, 80, 80, 0.7);
+    }
+  }
+
+  .form-group {
+    padding: 8px 0;
+
+    input::-webkit-input-placeholder {
+      color: rgba(80, 80, 80, 0.6) !important;
+    }
+
+    input:-moz-placeholder {
+      /* Firefox 18- */
+      color: rgba(80, 80, 80, 0.6) !important;
+    }
+
+    input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: rgba(80, 80, 80, 0.6) !important;
+    }
+
+    input:-ms-input-placeholder {
+      color: rgba(80, 80, 80, 0.6) !important;
+    }
+  }
+
+  .form-content {
+    padding: 40px 0;
+  }
+
+  .user-avatar {
+    border: 2px solid #808080;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+  }
+}
