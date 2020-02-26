@@ -1,2 +1,9 @@
-<app-search></app-search>
-<app-table></app-table>
+<app-search
+  (searched)="search($event)"
+  [searchParam]="searchParam"
+></app-search>
+<app-table
+  [list$]="list$"
+  (deleted)="delete($event)"
+  (passwordChanged)="passwordChange($event)"
+></app-table>

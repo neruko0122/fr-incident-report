@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { Observable } from 'rxjs'
 import { AbstractTable, TableHeader } from 'src/app/shared'
 
@@ -8,7 +8,12 @@ import { AbstractTable, TableHeader } from 'src/app/shared'
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent extends AbstractTable implements OnInit {
-  list$!: Observable<any[]>
+  @Input() list$!: Observable<any[]>
+  @Output()
+  deleted = new EventEmitter<string>()
+  @Output()
+  passwordChanged = new EventEmitter<any>()
+
   accountHeaders: TableHeader[] = [
     {
       isButton: true,
@@ -26,31 +31,25 @@ export class TableComponent extends AbstractTable implements OnInit {
       isButton: false,
       isSort: true,
       key: 'lastName',
-      name: '姓'
+      name: 'LASTNAME'
     },
     {
       isButton: false,
       isSort: true,
       key: 'firstName',
-      name: '名'
-    },
-    {
-      isButton: false,
-      isSort: true,
-      key: 'mailAddress',
-      name: 'メールアドレス'
+      name: 'FIRSTNAME'
     },
     {
       isButton: false,
       isSort: true,
       key: 'division',
-      name: '所属'
+      name: 'DIVISION'
     },
     {
       isButton: false,
       isSort: true,
       key: 'role',
-      name: 'ロール'
+      name: 'ROLE'
     },
     {
       isButton: true,
@@ -66,11 +65,15 @@ export class TableComponent extends AbstractTable implements OnInit {
 
   ngOnInit(): void {}
 
-  edit(mailAddress: string) {}
+  edit(id: string) {}
 
-  changePassword(mailAddress: string) {}
+  changePassword(id: string) {
+    this.passwordChanged.emit(id)
+  }
 
-  delete(mailAddress: string) {}
+  delete(id: string) {
+    this.deleted.emit(id)
+  }
 
   create() {}
 }

@@ -46,7 +46,7 @@
                   <button
                     type="button"
                     class="btn btn-primary "
-                    (click)="edit(item.mailAddress)"
+                    (click)="edit(item.id)"
                   >
                     <i class="fa fa-fw fa-edit"></i>Edit
                   </button>
@@ -55,14 +55,13 @@
                   <button
                     type="button"
                     class="btn btn-primary "
-                    (click)="changePassword(item.mailAddress)"
+                    (click)="changePassword(item.id)"
                   >
                     <i class="fa fa-fw fa-lock"></i>Password Change
                   </button>
                 </th>
                 <td>{{ item.lastName }}</td>
                 <td>{{ item.firstName }}</td>
-                <td>{{ item.mailAddress }}</td>
                 <td>{{ item.division }}</td>
                 <td>
                   {{ item.role }}
@@ -71,7 +70,7 @@
                   <button
                     type="button"
                     class="btn btn-danger "
-                    (click)="delete(item.mailAddress)"
+                    (click)="delete(item.id)"
                   >
                     <i class="fa fa-fw fa-trash"></i>Delete
                   </button>

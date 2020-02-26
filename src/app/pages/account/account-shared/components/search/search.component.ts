@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
+
+import { AccountSearchParam } from '../../models'
 
 @Component({
   selector: 'app-search',
@@ -7,15 +9,19 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  @Output()
+  searched = new EventEmitter<AccountSearchParam>()
+  @Input()
+  searchParam!: AccountSearchParam
   searchForm!: FormGroup
   roles: any = [
     {
       key: 'admin',
-      value: '管理者'
+      value: 'ADMINISTORATOR'
     },
     {
       key: 'operator',
-      value: 'オペレータ'
+      value: 'OPERATOR'
     }
   ]
 
