@@ -7,19 +7,11 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 
 import { PagesRoutingModule } from './pages-routing.module'
 import { PagesComponent } from './pages.component'
-import { ReportComponent } from './report/report.component'
-import { SettingComponent } from './setting/setting.component'
 import { HeaderComponent } from './shared/header/header.component'
 import { SidebarComponent } from './shared/sidebar/sidebar.component'
 
 @NgModule({
-  declarations: [
-    PagesComponent,
-    HeaderComponent,
-    SidebarComponent,
-    SettingComponent,
-    ReportComponent
-  ],
+  declarations: [PagesComponent, HeaderComponent, SidebarComponent],
   imports: [
     CommonModule,
     PagesRoutingModule,

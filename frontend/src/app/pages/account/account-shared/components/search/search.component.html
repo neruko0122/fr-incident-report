@@ -1,0 +1,65 @@
+<div class="card m-t-lg">
+  <div class="card-body">
+    <form [formGroup]="searchForm">
+      <div class="search-form">
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">Last Name:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <input
+            type="text"
+            class="form-control"
+            name="lastName"
+            formControlName="lastName"
+          />
+        </div>
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">First Name:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <input
+            type="text"
+            class="form-control"
+            name="firstName"
+            formControlName="firstName"
+          />
+        </div>
+      </div>
+      <div class="search-form">
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">Division:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <input
+            type="text"
+            class="form-control"
+            name="division"
+            formControlName="division"
+          />
+        </div>
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">Role:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <select class="form-control" formControlName="role">
+            <option *ngFor="let role of roles" [value]="role.key">
+              {{ role.value }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="search-bottom">
+      <button type="button" class="btn btn-primary  w-100px" (click)="search()">
+        <i class="fa fa-fw fa-search"></i>Search
+      </button>
+      <button
+        type="button"
+        class="btn btn btn-outline-secondary  w-100px m-l-sm"
+        (click)="reset()"
+      >
+        <i class="fa fa-fw fa-refresh"></i>Reset
+      </button>
+    </div>
+  </div>
+</div>
