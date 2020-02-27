@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
 import { Observable } from 'rxjs'
-import { AbstractTable, TableHeader } from 'src/app/shared'
+import { AbstractTable } from 'src/app/shared'
+
+import { ACCOUNT_HEADERS } from './../../constants/account'
 
 @Component({
   selector: 'app-table',
@@ -14,58 +17,25 @@ export class TableComponent extends AbstractTable implements OnInit {
   @Output()
   passwordChanged = new EventEmitter<any>()
 
-  accountHeaders: TableHeader[] = [
-    {
-      isButton: true,
-      isSort: false,
-      key: 'detail',
-      name: ''
-    },
-    {
-      isButton: true,
-      isSort: false,
-      key: 'changePassword',
-      name: ''
-    },
-    {
-      isButton: false,
-      isSort: true,
-      key: 'lastName',
-      name: 'LASTNAME'
-    },
-    {
-      isButton: false,
-      isSort: true,
-      key: 'firstName',
-      name: 'FIRSTNAME'
-    },
-    {
-      isButton: false,
-      isSort: true,
-      key: 'division',
-      name: 'DIVISION'
-    },
-    {
-      isButton: false,
-      isSort: true,
-      key: 'role',
-      name: 'ROLE'
-    },
-    {
-      isButton: true,
-      isSort: false,
-      key: 'delete',
-      name: ''
-    }
-  ]
+  accountHeaders = ACCOUNT_HEADERS
 
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
     super()
   }
 
   ngOnInit(): void {}
 
-  edit(id: string) {}
+  edit(id: string): void {
+    this.router.navigate(['detail', id], {
+      relativeTo: this.route
+    })
+  }
+
+  create(): void {
+    this.router.navigate(['detail'], {
+      relativeTo: this.route
+    })
+  }
 
   changePassword(id: string) {
     this.passwordChanged.emit(id)
@@ -74,6 +44,4 @@ export class TableComponent extends AbstractTable implements OnInit {
   delete(id: string) {
     this.deleted.emit(id)
   }
-
-  create() {}
 }

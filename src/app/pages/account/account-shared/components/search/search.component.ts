@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'
 
 import { AccountSearchParam } from '../../models'
+import { ROLES } from './../../constants/account'
 
 @Component({
   selector: 'app-search',
@@ -14,16 +15,7 @@ export class SearchComponent implements OnInit {
   @Input()
   searchParam!: AccountSearchParam
   searchForm!: FormGroup
-  roles: any = [
-    {
-      key: 'admin',
-      value: 'ADMINISTORATOR'
-    },
-    {
-      key: 'operator',
-      value: 'OPERATOR'
-    }
-  ]
+  roles = ROLES
 
   constructor(private fb: FormBuilder) {}
 
@@ -31,9 +23,18 @@ export class SearchComponent implements OnInit {
     this.buildForm()
   }
 
-  search() {}
+  search() {
+    this.searched.emit({
+      lastName: this.lastName.value,
+      firstName: this.firstName.value,
+      division: this.division.value,
+      role: this.role.value
+    })
+  }
 
-  reset() {}
+  reset() {
+    this.searchForm.reset()
+  }
 
   private buildForm(): void {
     this.searchForm = this.fb.group({

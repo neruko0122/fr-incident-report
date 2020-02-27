@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { BehaviorSubject, Observable, of } from 'rxjs'
 import { switchMap } from 'rxjs/operators'
+import { routerTransition } from 'src/app/router.animations'
 
 import { AccountSearchParam } from '../account-shared/models/account'
 
 @Component({
   selector: 'app-account-list',
   templateUrl: './account-list.component.html',
-  styleUrls: ['./account-list.component.scss']
+  styleUrls: ['./account-list.component.scss'],
+  animations: [routerTransition()]
 })
 export class AccountListComponent implements OnInit {
   list$!: Observable<any[]>
@@ -58,5 +60,33 @@ const DUMMY_ACCOUNTS: any[] = [
     firstName: 'Taro',
     division: 'general',
     role: 'ADMINISTORATOR'
+  },
+  {
+    id: 2,
+    lastName: 'Yamada',
+    firstName: 'Jiro',
+    division: 'general',
+    role: 'ADMINISTORATOR'
+  },
+  {
+    id: 3,
+    lastName: 'Tanaka',
+    firstName: 'Hanako',
+    division: 'general',
+    role: 'ADMINISTORATOR'
+  },
+  {
+    id: 4,
+    lastName: 'Sato',
+    firstName: 'Saburo',
+    division: 'general',
+    role: 'OPERATOR'
+  },
+  {
+    id: 5,
+    lastName: 'Kato',
+    firstName: 'Shiro',
+    division: 'general',
+    role: 'OPERATOR'
   }
 ]
