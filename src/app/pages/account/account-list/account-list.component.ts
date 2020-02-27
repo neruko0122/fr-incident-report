@@ -59,34 +59,34 @@ const DUMMY_ACCOUNTS: any[] = [
     lastName: 'Suzuki',
     firstName: 'Taro',
     division: 'general',
-    role: 'ADMINISTORATOR'
+    role: 'admin'
   },
   {
     id: 2,
     lastName: 'Yamada',
     firstName: 'Jiro',
     division: 'general',
-    role: 'ADMINISTORATOR'
+    role: 'admin'
   },
   {
     id: 3,
     lastName: 'Tanaka',
     firstName: 'Hanako',
     division: 'general',
-    role: 'ADMINISTORATOR'
+    role: 'admin'
   },
   {
     id: 4,
     lastName: 'Sato',
     firstName: 'Saburo',
     division: 'general',
-    role: 'OPERATOR'
+    role: 'operator'
   },
   {
     id: 5,
     lastName: 'Kato',
     firstName: 'Shiro',
     division: 'general',
-    role: 'OPERATOR'
+    role: 'operator'
   }
 ]

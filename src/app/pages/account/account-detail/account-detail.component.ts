@@ -18,7 +18,7 @@ export class AccountDetailComponent extends AbstractDetail implements OnInit {
     lastName: 'Suzuki',
     firstName: 'Taro',
     division: 'Genaral',
-    role: 'ADMINISTORATOR'
+    role: 'admin'
   }
   roleNames: any[] = ROLES
 
@@ -77,5 +77,7 @@ export class AccountDetailComponent extends AbstractDetail implements OnInit {
 
   register() {}
 
-  cancel() {}
+  cancel() {
+    this.router.navigate(['/account'])
+  }
 }
