@@ -1,1 +1,65 @@
-<p>search works!</p>
+<div class="card m-t-lg">
+  <div class="card-body">
+    <form [formGroup]="searchForm">
+      <div class="search-form">
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">StartAt:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <input
+            type="text"
+            class="form-control"
+            name="startAt"
+            formControlName="startAt"
+          />
+        </div>
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">EndAt:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <input
+            type="text"
+            class="form-control"
+            name="endAt"
+            formControlName="endAt"
+          />
+        </div>
+      </div>
+      <div class="search-form">
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">Division:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <input
+            type="text"
+            class="form-control"
+            name="division"
+            formControlName="division"
+          />
+        </div>
+        <div class="search-label">
+          <label class="col-form-label mr-2 title">Impact:</label>
+        </div>
+        <div class="form-group col-sm-3 pl-0">
+          <select class="form-control" formControlName="impact">
+            <option *ngFor="let impact of impacts" [value]="impact.key">
+              {{ impact.value }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <div class="search-bottom">
+      <button type="button" class="btn btn-primary  w-100px" (click)="search()">
+        <i class="fa fa-fw fa-search"></i>Search
+      </button>
+      <button
+        type="button"
+        class="btn btn btn-outline-secondary  w-100px m-l-sm"
+        (click)="reset()"
+      >
+        <i class="fa fa-fw fa-refresh"></i>Reset
+      </button>
+    </div>
+  </div>
+</div>

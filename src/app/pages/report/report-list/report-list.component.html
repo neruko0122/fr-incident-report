@@ -1,1 +1,5 @@
-<p>report-list works!</p>
+<app-search
+  (searched)="search($event)"
+  [searchParam]="searchParam"
+></app-search>
+<app-table [list$]="list$" (deleted)="delete($event)"></app-table>

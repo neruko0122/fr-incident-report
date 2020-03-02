@@ -1,1 +1,79 @@
-<p>table works!</p>
+<div class="card m-t-lg">
+  <div class="card-header">
+    <div class="d-flex">
+      <button
+        type="button"
+        class="btn btn-info  w-100px mr-1"
+        (click)="create()"
+      >
+        <i class="fa fa-fw fa-plus"></i>Create
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <ng-container *ngIf="list$ | async as list">
+      <ng-container *ngIf="list.length > 0; else notFound">
+        <table class="table">
+          <thead>
+            <tr>
+              <th
+                class="sticky-header"
+                *ngFor="let item of reportHeaders"
+                [ngClass]="{
+                  'minimum-width': item.isButton,
+                  sort: item.isSort
+                }"
+                (click)="setOrder(item.key, item.isSort)"
+                nowrap="true"
+              >
+                <ng-container *ngIf="item.isSort">
+                  {{ item.name }}
+                  <ng-container *ngIf="order !== item.key; else elseBlock">
+                    <i class="fa fa-sort fa-disable"></i>
+                  </ng-container>
+                  <ng-template #elseBlock>
+                    <i [hidden]="reverse" class="fa fa-sort-asc"></i>
+                    <i [hidden]="!reverse" class="fa fa-sort-desc"></i>
+                  </ng-template>
+                </ng-container>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let item of list | orderBy: order:reverse">
+              <tr>
+                <th nowrap="true">
+                  <button
+                    type="button"
+                    class="btn btn-primary "
+                    (click)="edit(item.id)"
+                  >
+                    <i class="fa fa-fw fa-edit"></i>Edit
+                  </button>
+                </th>
+                <td>{{ item.type }}</td>
+                <td>{{ item.createdAt }}</td>
+                <td>{{ item.division }}</td>
+                <td>
+                  {{ item.impact }}
+                </td>
+                <th nowrap="true">
+                  <button
+                    type="button"
+                    class="btn btn-danger "
+                    (click)="delete(item.id)"
+                  >
+                    <i class="fa fa-fw fa-trash"></i>Delete
+                  </button>
+                </th>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </ng-container>
+    </ng-container>
+    <ng-template #notFound>
+      <p>No results</p>
+    </ng-template>
+  </div>
+</div>
