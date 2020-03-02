@@ -10,14 +10,14 @@ export const REPORT_HEADERS: TableHeader[] = [
   {
     isButton: false,
     isSort: true,
-    key: 'createdAt',
-    name: 'CREATED AT'
+    key: 'type',
+    name: 'TYPE'
   },
   {
     isButton: false,
     isSort: true,
-    key: 'type',
-    name: 'TYPE'
+    key: 'createdAt',
+    name: 'CREATED AT'
   },
   {
     isButton: false,
