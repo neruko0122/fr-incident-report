@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { routerTransition } from 'src/app/router.animations';
 import { AbstractDetail } from 'src/app/shared';
+import { Report } from 'src/app/shared/api-clients';
 
 import { PreviewService } from '../report-shared/services/preview.service';
 import { IMPACTS } from './../report-shared/constants/report';
@@ -15,10 +16,10 @@ import { IMPACTS } from './../report-shared/constants/report';
 })
 export class ReportDetailComponent extends AbstractDetail implements OnInit {
   key: string;
-  dto: any = {
+  dto: Report = {
     id: "1",
     type: "Needlestick",
-    createdAt: "2020-03-02 10:00:00",
+    createdAt: new Date("2020-03-02 10:00:00"),
     division: "Genaral",
     impact: "2"
   };
@@ -73,7 +74,12 @@ export class ReportDetailComponent extends AbstractDetail implements OnInit {
   register() {}
 
   preview() {
-    this.previewService.preview(this.dto);
+    this.previewService.preview({
+      id: "1",
+      division: this.division.value,
+      impact: this.impact.value,
+      createdAt: new Date("2020-03-03 11:00:00")
+    });
   }
 
   cancel() {

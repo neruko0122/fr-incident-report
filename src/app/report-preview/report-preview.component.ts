@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
 import { PreviewService } from '../pages/report/report-shared/services/preview.service';
+import { Report } from '../shared/api-clients';
 
 @Component({
   selector: "app-report-preview",
@@ -9,14 +9,11 @@ import { PreviewService } from '../pages/report/report-shared/services/preview.s
   styleUrls: ["./report-preview.component.scss"]
 })
 export class ReportPreviewComponent implements OnInit {
-  constructor(
-    private previewService: PreviewService,
-    private activeRoute: ActivatedRoute
-  ) {
-    const paramMap = this.activeRoute.snapshot.paramMap;
-  }
+  dto!: Report;
+  constructor(private previewService: PreviewService) {}
 
   ngOnInit(): void {
+    this.dto = this.previewService.getReportDto();
     this.previewService.onDataReady();
   }
 }
