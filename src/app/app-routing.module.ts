@@ -12,6 +12,13 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   },
+  {
+    path: 'preview',
+    loadChildren: () =>
+      import('./report-preview/report-preview.module').then(
+        m => m.ReportPreviewModule
+      )
+  },
   { path: '**', redirectTo: '' }
 ]
 
