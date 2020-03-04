@@ -3,3 +3,64 @@
 header - color ## sidebar - color - role select ## master - floor - place -
 division - job - years of experience - impact - disease name - doctor - content
 - content detail
+<div [@routerTransition]>
+  <div class="container card m-t-lg">
+    <div class="card-body">
+      <form [formGroup]="form" autocomplete="off">
+        <div [class]="formGroupClass">
+          <label [class]="labelClass">LastName</label>
+          <input
+            type="text"
+            [class]="inputClass"
+            formControlName="sample"
+            [attr.disabled]
+          />
+        </div>
+        <div [class]="formGroupClass">
+          <label [class]="labelClass">FirstName</label>
+          <input
+            type="text"
+            [class]="inputClass"
+            formControlName="sample"
+            [attr.disabled]
+          />
+        </div>
+        <div [class]="formGroupClass">
+          <label [class]="labelClass">Division</label>
+
+          <input
+            type="text"
+            [class]="inputClass"
+            formControlName="sample"
+            [attr.disabled]
+          />
+        </div>
+        <!-- <div [class]="formGroupClass">
+          <label [class]="labelClass">Role</label>
+          <select [class]="inputClass" formControlName="role">
+            <option *ngFor="let item of roleNames" [value]="item.key">
+              {{ item.value }}
+            </option>
+          </select>
+        </div> -->
+      </form>
+      <div class="d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-outline-secondary  w-100px ml-1"
+          (click)="cancel()"
+        >
+          Cancel
+        </button>
+        <button
+          type="button"
+          class="btn btn-info  w-100px ml-1"
+          (click)="register()"
+          [attr.disabled]="form.valid && form.dirty ? null : true"
+        >
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

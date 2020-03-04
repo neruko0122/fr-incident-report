@@ -1,7 +1,11 @@
 <div class="card m-t-lg">
   <div class="card-header">
     <div class="d-flex">
-      <button type="button" class="btn btn-info  w-100px mr-1" (click)="create()">
+      <button
+        type="button"
+        class="btn btn-info  w-100px mr-1"
+        (click)="create()"
+      >
         <i class="fa fa-fw fa-plus"></i>Create
       </button>
     </div>
@@ -12,10 +16,16 @@
         <table class="table">
           <thead>
             <tr>
-              <th class="sticky-header" *ngFor="let item of reportHeaders" [ngClass]="{
+              <th
+                class="sticky-header"
+                *ngFor="let item of reportHeaders"
+                [ngClass]="{
                   'minimum-width': item.isButton,
                   sort: item.isSort
-                }" (click)="setOrder(item.key, item.isSort)" nowrap="true">
+                }"
+                (click)="setOrder(item.key, item.isSort)"
+                nowrap="true"
+              >
                 <ng-container *ngIf="item.isSort">
                   {{ item.name }}
                   <ng-container *ngIf="order !== item.key; else elseBlock">
@@ -33,18 +43,26 @@
             <ng-container *ngFor="let item of list | orderBy: order:reverse">
               <tr>
                 <th nowrap="true">
-                  <button type="button" class="btn btn-primary " (click)="edit(item.id)">
+                  <button
+                    type="button"
+                    class="btn btn-primary "
+                    (click)="edit(item.id)"
+                  >
                     <i class="fa fa-fw fa-edit"></i>Edit
                   </button>
                 </th>
                 <td>{{ item.type }}</td>
-                <td>{{ item.createdAt| date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+                <td>{{ item.createdAt | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
                 <td>{{ item.division }}</td>
                 <td>
                   {{ item.impact }}
                 </td>
                 <th nowrap="true">
-                  <button type="button" class="btn btn-danger " (click)="delete(item.id)">
+                  <button
+                    type="button"
+                    class="btn btn-danger "
+                    (click)="delete(item.id)"
+                  >
                     <i class="fa fa-fw fa-trash"></i>Delete
                   </button>
                 </th>

@@ -42,6 +42,7 @@
           type="button"
           class="btn btn-info  w-100px ml-1"
           (click)="preview()"
+          [attr.disabled]="form.valid && !modified ? null : true"
         >
           Preview
         </button>
